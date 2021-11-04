@@ -26,7 +26,7 @@ public class WebSocketEventListener {
     }
 
     @EventListener
-    public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
+    public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {  //여기서 처리하는 거임..
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
 
         String username = (String) headerAccessor.getSessionAttributes().get("username");
@@ -36,6 +36,20 @@ public class WebSocketEventListener {
             ChatMessage chatMessage = new ChatMessage();
             chatMessage.setType(MessageType.LEAVE);
             chatMessage.setSender(username);
+
+            logger.info("why "  + chatMessage);
+
+            messagingTemplate.convertAndSend("/topic/public", chatMessage);
+        }else{
+
+
+
+            ChatMessage chatMessage = new ChatMessage();
+            chatMessage.setType(MessageType.LEAVE);
+            chatMessage.setSender(username);
+
+            logger.info("why2 "  + chatMessage);
+
 
             messagingTemplate.convertAndSend("/topic/public", chatMessage);
         }

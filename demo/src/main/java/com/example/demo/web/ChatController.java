@@ -30,15 +30,4 @@ public class ChatController {
     }
 
 
-
-//    @MessageMapping("/chat.sendMessage")
-//    @SendTo("/topic/public")
-//    public ChatMessage sendMessageTest(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
-//
-//        System.out.println("요청 오는 거랑 받는 거??? " + chatMessage);
-//        headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
-//
-//        return chatMessage;
-//    }
-
 }
