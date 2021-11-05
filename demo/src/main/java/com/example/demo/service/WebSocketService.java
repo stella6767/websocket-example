@@ -10,15 +10,5 @@ import org.springframework.stereotype.Service;
 @Service
 public class WebSocketService {
 
-    @MessageMapping("/chat.sendMessage")
-    @SendTo("/topic/public")
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
-
-        System.out.println("service: " + chatMessage);
-
-        return chatMessage;
-    }
-
-
 
 }
